@@ -10,11 +10,11 @@ public:
 	Node* previous;
 
 	LinkedList();
-	void InsertNode(std::string  data);
-	void DeleteNode(std::string  data);
-	void InsertFront(std::string  data);
-	void InsertAfterNode(std::string  data1, std::string  data2);
-	void InsertEnd(std::string  data);
+	void InsertNode(char  data);
+	void DeleteNode(char  data);
+	void InsertFront(char  data);
+	void InsertAfterNode(char  data1, char  data2);
+	void InsertEnd(char  data);
 	void DisplayList();
 	bool IsEmpty();
 };

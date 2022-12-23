@@ -9,7 +9,7 @@ LinkedList::LinkedList() {
 	head = nullptr;
 	previous = nullptr;
 }
-void LinkedList::InsertNode(std::string  insertNode) {
+void LinkedList::InsertNode(char  insertNode) {
 	newnode = new Node(insertNode);
 	if (head == nullptr) {
 		head = newnode;
@@ -21,7 +21,7 @@ void LinkedList::InsertNode(std::string  insertNode) {
 	}
 	temp->pointToNextNode = newnode;
 }
-void LinkedList::DeleteNode(std::string  deleteNode) {
+void LinkedList::DeleteNode(char  deleteNode) {
 
 	if (head->dataToInput == deleteNode) {
 		Node* temp = head;
@@ -45,12 +45,12 @@ void LinkedList::DeleteNode(std::string  deleteNode) {
 	current->pointToNextNode = temp->pointToNextNode;
 	delete temp;
 }
-void LinkedList::InsertFront(std::string  insertFront) {
+void LinkedList::InsertFront(char  insertFront) {
 	Node* newnodeInsert = new Node(insertFront);
 	newnodeInsert->pointToNextNode = head;
 	head = newnodeInsert;
 }
-void LinkedList::InsertAfterNode(std::string  insertNodeAfter, std::string  insertNodeAt) {
+void LinkedList::InsertAfterNode(char  insertNodeAfter, char  insertNodeAt) {
 	temp = head;
 	while (temp && temp->dataToInput != insertNodeAfter) {
 		temp = temp->pointToNextNode;
@@ -68,7 +68,7 @@ void LinkedList::InsertAfterNode(std::string  insertNodeAfter, std::string  inse
 	newnodeAfter->pointToNextNode = temp->pointToNextNode;
 	temp->pointToNextNode = newnodeAfter;
 }
-void LinkedList::InsertEnd(std::string insertEnd) {
+void LinkedList::InsertEnd(char insertEnd) {
 
 	Node* newnodeEnd = new Node(insertEnd);
 	newnodeEnd->pointToNextNode = nullptr;
@@ -87,32 +87,43 @@ void LinkedList::DisplayList() {
 	system("cls");
 	if (temp == nullptr) {
 		setColor(4);
-		std::cout << "Your Linked List Is Empty";
+		std::cout << "Your Linked List Is Empty\n";
 	}
 	else {
+		setColor(11);
 		std::cout << "Your Linked List Is:" << std::endl;
-
+		Node* curr = head;
 		setColor(125);
-		std::cout << "\n*START*\n";
-		setColor(13);
-		std::cout << "+-----+" << std::endl;
-		std::cout << "|  "; setColor(11); std::cout << head->dataToInput; setColor(13); std::cout << "  |" << std::endl;
-		setColor(13);
-		std::cout << "+-----+" << std::endl;
-
-		Node* current = head->pointToNextNode;
-		while (current) {
-			setColor(2);
-			std::cout << "   |" << std::endl;
-			std::cout << "   |" << std::endl;
+		std::cout << "\n===START===\n";
+		while (curr != nullptr) {
 			setColor(13);
-			std::cout << "+-----+" << std::endl;
-			std::cout << "|  "; setColor(11); std::cout << current->dataToInput; setColor(13); std::cout << "  |" << std::endl;
-			setColor(13);
-			std::cout << "+-----+" << std::endl;
-			current = current->pointToNextNode;
+			std::cout << "+--------+   ";
+			curr = curr->pointToNextNode;
 		}
+		setColor(4);
+		std::cout << "+----+";
+		std::cout << std::endl;
+
+		curr = head;
+		while (curr != nullptr) {
+			setColor(13);
+			std::cout << "|   "; setColor(11); std::cout << curr->dataToInput; setColor(13); std::cout << "    |"; setColor(2); std::cout << "-->";
+			curr = curr->pointToNextNode;
+		}
+		setColor(4);
+		std::cout << "|NULL|";
+		std::cout << std::endl;
+
+		curr = head;
+		while (curr != nullptr) {
+			setColor(13);
+			std::cout << "+--------+   ";
+			curr = curr->pointToNextNode;
+		}
+		setColor(4);
+		std::cout << "+----+";
+		std::cout << std::endl;
 	}
-	std::cout << "\n\n\n";
+	std::cout << std::endl;
 	setColor(15);
 }

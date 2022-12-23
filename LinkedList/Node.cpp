@@ -1,6 +1,6 @@
 #include "Node.h"
 
 Node::Node() {}
-Node::Node(std::string  getChar) {
+Node::Node(char  getChar) {
 	dataToInput = getChar;
 }

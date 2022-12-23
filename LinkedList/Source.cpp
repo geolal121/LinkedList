@@ -8,14 +8,13 @@ void Menue() {
 	std::cout << "5-) Exit Program" << std::endl;
 	std::cout << "\nEnter Choice: ";
 }
-
 void main() {
 
 	int choice;
 	int choiceToInsert;
-	std::string  insertNodeAt, insertAfterNode;
-	std::string  deleteNode;
-	std::string  insertNode;
+	char  insertNodeAt, insertAfterNode;
+	char  deleteNode;
+	char  insertNode;
 	LinkedList L;
 	L.showConsoleCursor(false);
 
@@ -24,7 +23,7 @@ void main() {
 		while (!(std::cin >> choice))
 		{
 			L.setColor(4);
-			std::cout << "\nMust Be A Number: \n";
+			std::cout << "\n\nMust Be A Number: \n";
 			L.setColor(15);
 			std::cout << "\nEnter Choice Again: ";
 			std::cin.clear();
@@ -86,7 +85,7 @@ void main() {
 				while (!(std::cin >> choiceToInsert))
 				{
 					L.setColor(4);
-					std::cout << "\nMust Be A Number: \n";
+					std::cout << "\n\nMust Be A Number: \n";
 					L.setColor(15);
 					std::cout << "\nEnter Choice Again: ";
 					std::cin.clear();

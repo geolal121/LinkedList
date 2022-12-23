@@ -4,9 +4,9 @@
 class Node : public Coordinates {
 
 public:
-	std::string dataToInput;
+	char dataToInput;
 	Node* pointToNextNode;
 
 	Node();
-	Node(std::string  getChar);
+	Node(char  getChar);
 };
