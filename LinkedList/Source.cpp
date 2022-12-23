@@ -1,3 +1,9 @@
+/*
+* Create By: Geo Hernandez
+* Date Pushed To GitHub: 12/23/22
+*/
+
+#define NOMINMAX
 #include "LinkedList.h"
 
 void Menue() {
@@ -23,7 +29,7 @@ void main() {
 		while (!(std::cin >> choice))
 		{
 			L.setColor(4);
-			std::cout << "\n\nMust Be A Number: \n";
+			std::cout << "\nChoice Must Be A Number: \n";
 			L.setColor(15);
 			std::cout << "\nEnter Choice Again: ";
 			std::cin.clear();
@@ -37,6 +43,7 @@ void main() {
 				L.setColor(15);
 				std::cout << "\nInsert Node To Create List: ";
 				std::cin >> insertNode;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				L.InsertNode(insertNode);
 				std::cout << "\n";
 				L.DisplayList();
@@ -46,6 +53,7 @@ void main() {
 				L.DisplayList();
 				std::cout << "\nInsert Node: ";
 				std::cin >> insertNode;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				L.InsertNode(insertNode);
 				std::cout << "\n";
 				L.DisplayList();
@@ -63,6 +71,7 @@ void main() {
 				L.DisplayList();
 				std::cout << "Delete Node: ";
 				std::cin >> deleteNode;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				L.DeleteNode(deleteNode);
 				std::cout << "\n";
 				L.DisplayList();
@@ -94,20 +103,24 @@ void main() {
 				if (choiceToInsert == 1) {
 					std::cout << "\nInsert Node At Front: ";
 					std::cin >> insertNodeAt;
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					L.InsertFront(insertNodeAt);
 					std::cout << "\n";
 				}
 				else if (choiceToInsert == 2) {
-					std::cout << "\nInsert Node: ";
+					std::cout << "\nNode To Insert: ";
 					std::cin >> insertNodeAt;
-					std::cout << "\nInsert Node After What Node: ";
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "\nAfter What Node: ";
 					std::cin >> insertAfterNode;
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					L.InsertAfterNode(insertAfterNode, insertNodeAt);
 					std::cout << "\n";
 				}
 				else if (choiceToInsert == 3) {
 					std::cout << "\nInsert Node At End: ";
 					std::cin >> insertNodeAt;
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					L.InsertNode(insertNodeAt);
 					std::cout << "\n";
 				}

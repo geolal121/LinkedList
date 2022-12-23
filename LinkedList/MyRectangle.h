@@ -16,7 +16,7 @@ public:
 	MyRectangle(int xx, int yy, int ww, int hh, char cc, bool hol = false, int recCol = 15, int txtCol = 15, std::string text = "", int sleepTime = 250);
 	void Draw();
 	void Draw(int x, int y, int w, int h, int symbol = 219, int color = 6, std::string txt = "");
-	void DrawSkelaton(int x, int y, int w, int h, std::string txt = "", WORD color = 0);
+	void DrawSkelaton(int x, int y, int w, int h, std::string txt = "", WORD color = 0, WORD boxcolor = 0);
 	void SetX(int xx);
 	void SetY(int yy);
 	void setWidth(int ww);

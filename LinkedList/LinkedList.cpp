@@ -9,6 +9,9 @@ LinkedList::LinkedList() {
 	head = nullptr;
 	previous = nullptr;
 }
+bool  LinkedList::IsEmpty() {
+	return !head;
+}
 void LinkedList::InsertNode(char  insertNode) {
 	newnode = new Node(insertNode);
 	if (head == nullptr) {
@@ -33,11 +36,9 @@ void LinkedList::DeleteNode(char  deleteNode) {
 	while (current->pointToNextNode && current->pointToNextNode->dataToInput != deleteNode) {
 		current = current->pointToNextNode;
 	}
-
 	if (!current->pointToNextNode) {
 		setColor(4);
-		std::cout << "\nInput Not Foud! Try Again...\n";
-		Sleep(2500);
+		std::cout << "\nInput Not Foud! Try Again"; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "\n";
 		setColor(15);
 		return;
 	}
@@ -58,8 +59,7 @@ void LinkedList::InsertAfterNode(char  insertNodeAfter, char  insertNodeAt) {
 	if (!temp) {
 
 		setColor(4);
-		std::cout << "\nInput Not Foud! Try Again...\n";
-		Sleep(2500);
+		std::cout << "\nInput Not Foud! Try Again"; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "."; Sleep(625); std::cout << "\n";
 		setColor(15);
 		return;
 	}
@@ -79,22 +79,25 @@ void LinkedList::InsertEnd(char insertEnd) {
 	}
 	temp->pointToNextNode = newnodeEnd;
 }
-bool  LinkedList::IsEmpty() {
-	return !head;
-}
 void LinkedList::DisplayList() {
 	temp = head;
-	system("cls");
 	if (temp == nullptr) {
+		system("cls");
 		setColor(4);
-		std::cout << "Your Linked List Is Empty\n";
+		std::cout << "==== All Nodes Have Been Deleted ====\n\n";
+		setColor(15);
+		return;
 	}
 	else {
-		setColor(11);
-		std::cout << "Your Linked List Is:" << std::endl;
+		system("cls");
+		MyRectangle R;
+		std::string message = "Your Linked List Is:";
+		R.DrawSkelaton(0, 0, 3 + message.length(), 2, message, 11, 5);
 		Node* curr = head;
-		setColor(125);
-		std::cout << "\n===START===\n";
+		setColor(7);
+		std::cout << "\n\n----------------------------------------------------------------------------------------------------------------------->";
+		setColor(112);
+		std::cout << "\n==START==\n";
 		while (curr != nullptr) {
 			setColor(13);
 			std::cout << "+--------+   ";
@@ -107,7 +110,7 @@ void LinkedList::DisplayList() {
 		curr = head;
 		while (curr != nullptr) {
 			setColor(13);
-			std::cout << "|   "; setColor(11); std::cout << curr->dataToInput; setColor(13); std::cout << "    |"; setColor(2); std::cout << "-->";
+			std::cout << "|   "; setColor(11); std::cout << curr->dataToInput; setColor(13); std::cout << "    |"; setColor(7); std::cout << "-->";
 			curr = curr->pointToNextNode;
 		}
 		setColor(4);
@@ -124,6 +127,8 @@ void LinkedList::DisplayList() {
 		std::cout << "+----+";
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	setColor(7);
+	std::cout << "----------------------------------------------------------------------------------------------------------------------->\n";
 	setColor(15);
+	std::cout << std::endl;
 }

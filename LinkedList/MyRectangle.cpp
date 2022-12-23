@@ -35,8 +35,8 @@ void MyRectangle::Draw(int x, int y, int w, int h, int symbol, int color, std::s
 		std::cout << txt;
 	}
 }
-void MyRectangle::DrawSkelaton(int x, int y, int w, int h, std::string txt, WORD color) {
-	SetConsoleTextAttribute(hConsole, 15);
+void MyRectangle::DrawSkelaton(int x, int y, int w, int h, std::string txt, WORD color, WORD boxColor) {
+	SetConsoleTextAttribute(hConsole, boxColor);
 	// draw corners.
 	gotoxy(x, y);
 	std::cout << char(218);
@@ -64,7 +64,7 @@ void MyRectangle::DrawSkelaton(int x, int y, int w, int h, std::string txt, WORD
 		int midHeight = h / 2;
 		int midWidth = w / 2;
 		midWidth = midWidth - (textLen / 2);
-		gotoxy(x + midWidth + 2, y + midHeight);
+		gotoxy(x + midWidth + 1, y + midHeight);
 		std::cout << txt;
 	}
 }
